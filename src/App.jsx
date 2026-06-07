@@ -739,7 +739,7 @@ const INK_FILTER_MAP = {
 // ─── PACKAGING COMPONENTS ─────────────────────────────────────────────────────
 
 function InkCard({ cat, active, onEnter, onLeave }) {
-  const levelColor = { '#c8f542': 'var(--lime)', '#ff9f42': '#ff9f42', '#42d4f5': '#42d4f5' };
+
   const tc = cat.tagColor;
   return (
     <div
