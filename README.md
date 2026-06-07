@@ -143,3 +143,4 @@ Same pattern:
 - [ ] Integrate Shopify Storefront API for live catalog browsing
 - [ ] Add `/catalog` route with React Router if multi-page needed
 - [ ] Set up analytics with Cloudflare Web Analytics (free, no cookies)
+# UptimePartsHub
