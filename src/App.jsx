@@ -506,14 +506,24 @@ function Contact() {
   const [ref, visible] = useInView();
   const [form, setForm] = useState({ name: '', company: '', email: '', interest: 'dropship', message: '' });
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    // In production: POST to your backend / Cloudflare Worker / Formspree
-    console.log('Form submitted:', form);
-    setSent(true);
+    setError(false);
+    try {
+      const res = await fetch('https://formspree.io/f/mvznaoew', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('Form submission failed');
+      setSent(true);
+    } catch (err) {
+      setError(true);
+    }
   };
 
   return (
@@ -581,6 +591,7 @@ function Contact() {
                   <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
+              {error && <p className="contact-error">Something went wrong sending your enquiry. Please try again or email us directly.</p>}
             </form>
           )}
         </div>
