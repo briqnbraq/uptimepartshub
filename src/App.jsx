@@ -492,7 +492,7 @@ function About() {
                 <div className="about-stat__num">{num}</div>
                 <div className="about-stat__label">{label}</div>
               </div>
-            ))}
+            ))} 
           </div>
         </div>
       </div>
@@ -731,7 +731,7 @@ const INK_PROCESS_STEPS = [
   { num: '01', title: 'Specify Your Substrate', text: 'Tell us your packaging material — PE film, PP pouch, kraft paper, shrink sleeve, etc.' },
   { num: '02', title: 'Select Ink Type',         text: 'Browse by application, regulation, or performance spec. Filter by FDA / EU / PPWR compliance.' },
   { num: '03', title: 'Request CoA Package',     text: 'Every order includes Certificate of Analysis, migration test reports, and regulatory declaration.' },
-  { num: '04', title: 'Drop-Ship to Printer',    text: 'We ship direct to your packaging printer or contract manufacturer. No stock, no hassle.' },
+  { num: '04', title: 'Drop-Ship to Printer',    text: 'We ship direct to your end customer, contract manufacturer, or your ownlocation - wherever fits your supply chain. No stock, no hassle.' },
 ];
 
 const INK_WHY = [
