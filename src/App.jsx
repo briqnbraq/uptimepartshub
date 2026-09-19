@@ -16,6 +16,8 @@ const TICKER_ITEMS = [
   'Beverages & Supplements', 'Food Ingredients', 'Zero Inventory Risk',
   'Industry Expert Curation', 'North America & Europe',
   'Food-Safe Packaging Inks', 'FDA & EU Compliant',
+  'FDA-Registered Facilities', 'NSF International Audited',
+  'cGMP Certified Production', 'Blind Ship — Your Brand Only',
 ];
 
 const CATEGORIES = [
@@ -84,8 +86,8 @@ const PROCESS_STEPS = [
   },
   {
     num: '04',
-    title: 'We Ship Direct',
-    text: 'Orders route directly to fulfillment partners. Product ships branded as yours. You keep the margin.',
+    title: 'We Ship Invisibly',
+    text: 'Orders route straight to the manufacturer and ship blind — your brand on the box, your name on the packing slip. Your customer never sees ours, and neither does your competition.',
     icon: '📦',
   },
 ];
@@ -98,18 +100,18 @@ const VALUE_PROPS = [
   },
   {
     icon: '📦',
-    title: 'True Drop-Ship',
-    text: 'Zero stock commitment. Orders fulfilled direct from our supplier network, no minimum inventory required.',
+    title: 'Invisible Drop-Ship',
+    text: 'Zero stock commitment, and every order ships blind — no manufacturer name, logo, or invoice ever reaches your customer.',
   },
   {
     icon: '🏷️',
     title: 'White Label Ready',
-    text: 'Launch your nutrition brand quickly. We handle supplier coordination, compliance docs, and branded packaging.',
+    text: 'Launch your nutrition brand quickly. We handle supplier coordination, compliance docs, and branded packaging — nothing in the box points back to the factory.',
   },
   {
     icon: '✅',
-    title: 'Compliance Covered',
-    text: 'All products sourced with current SDS, CoA, and regulatory compliance for North American and European markets.',
+    title: 'FDA Registered. cGMP Certified.',
+    text: 'Production runs in FDA-registered, NSF International–audited, cGMP-certified facilities, with current SDS, CoA, and NA/EU regulatory docs on every product.',
   },
   {
     icon: '🔗',
@@ -227,7 +229,8 @@ function Hero() {
         </h1>
         <p className="hero-sub">
           Drop-ship and white-label nutrition, functional food, and beverage
-          components — sourced by industry insiders, delivered without inventory risk.
+          components — made in FDA-registered, cGMP-certified facilities, shipped
+          blind under your brand. Your customers see you. They never see us.
         </p>
         <div className="hero-actions">
           <BtnPrimary href="#catalog">Browse Catalog</BtnPrimary>
@@ -302,8 +305,9 @@ function Categories() {
           <h2>THE PARTS THAT<br />POWER PERFORMANCE</h2>
         </div>
         <p className="section-desc">
-          Curated by food &amp; beverage industry professionals. Every SKU is
-          drop-ship enabled — no warehousing, no upfront capital, just your
+          Curated by food &amp; beverage industry professionals and produced in
+          FDA-registered, cGMP-certified facilities. Every SKU is drop-ship enabled
+          and ships unbranded-to-us — no warehousing, no upfront capital, just your
           brand on proven products.
         </p>
       </div>
@@ -343,6 +347,26 @@ function Process() {
       <div className={`${visible ? 'is-visible' : ''}`}>
         <SectionTag>The Process</SectionTag>
         <h2>ZERO INVENTORY.<br />FULL BRAND.</h2>
+
+        <div className="process-intro">
+          <div className="process-intro__label">New here? Here's the short version.</div>
+          <p>
+            You sell the product. We make it and ship it. You never buy stock, never
+            rent a warehouse, and never touch a pallet.
+          </p>
+          <p>
+            Pick products from our catalog, put your own label on them, and list them
+            wherever you sell. When a customer orders, that order comes to us, the
+            product is made in an FDA-registered, cGMP-certified facility, and it goes
+            out in packaging that carries <strong>your</strong> brand and nobody else's.
+            No factory name, no our-name-on-the-invoice, no clue that we exist.
+          </p>
+          <p>
+            You pay the wholesale price, keep the difference, and look like a company
+            with its own plant. That's the whole model — the four steps below are just
+            the detail.
+          </p>
+        </div>
       </div>
 
       <div className={`steps ${visible ? 'is-visible' : ''}`}>
@@ -373,12 +397,17 @@ function WhiteLabel() {
           <p className="wl-text">
             You bring the vision — we handle sourcing, compliance, co-manufacturer
             coordination, and branded packaging. Launch a private-label nutrition
-            line in weeks, not months, with zero upfront inventory commitment.
+            line in weeks, not months, with zero upfront inventory commitment. We
+            stay invisible: the co-manufacturer is never named to your customers,
+            your competitors, or your marketplace listings.
           </p>
           <ul className="wl-list">
             {[
               'Minimum order from 1 unit on select lines',
               'Custom label design support available',
+              'Blind shipping — your brand on the box and the packing slip',
+              'No manufacturer marks, inserts, or return addresses',
+              'Produced in FDA-registered, NSF International–audited, cGMP-certified facilities',
               'Certificate of Analysis (CoA) on every lot',
               'FDA / Health Canada / EU regulatory guidance',
               'Shopify & WooCommerce fulfillment integration',
@@ -402,6 +431,7 @@ function WhiteLabel() {
               ['Catalog Access', '✓'],
               ['Drop-Ship Fulfillment', '✓'],
               ['White Label Program', '✓'],
+              ['Blind / Unbranded Shipping', '✓'],
               ['Compliance Docs', '✓'],
               ['Platform Integration', '✓'],
               ['Dedicated Account Rep', '✓'],
@@ -421,6 +451,10 @@ function WhiteLabel() {
                 <span key={s} className="wl-supplier">{s}</span>
               ))}
             </div>
+            <p className="wl-suppliers__note">
+              Shown here so you know who stands behind the product. Never printed on
+              your packaging, paperwork, or shipping labels.
+            </p>
           </div>
         </div>
       </div>
@@ -475,6 +509,18 @@ function About() {
             Our platform solves exactly that — connecting emerging brands and
             resellers to a vetted drop-ship and white-label supply network, with
             the compliance, logistics, and formulation expertise to back it up.
+          </p>
+          <p>
+            Everything we ship is produced in FDA-registered facilities that are
+            audited by NSF International and run to cGMP (Current Good Manufacturing
+            Practice) standards — third-party verified, batch-documented, and held to
+            the same bar as the national brands on the shelf next to you.
+          </p>
+          <p>
+            And we stay out of the frame. UptimePartsHub is a silent partner: our
+            name, our manufacturers' names, and our paperwork never appear on your
+            products, your packaging, your packing slips, or in front of your
+            customers. To the market, you built it.
           </p>
           <p>
             We operate across North America and Europe, and we grow when you grow.
@@ -535,6 +581,8 @@ function Contact() {
           <p className="contact-sub">
             Whether you're looking to drop-ship existing brands or launch your own
             white-label line, fill in the form and we'll be in touch within 1 business day.
+            Every enquiry is confidential — we never reference our partners' brands publicly,
+            and we never appear in front of your customers.
           </p>
           <div className="contact-info">
             <div className="contact-info__item">
@@ -607,7 +655,7 @@ function CtaBand() {
     <div className="cta-band">
       <div className="cta-band__text">
         <h2>READY TO BUILD YOUR BRAND?</h2>
-        <p>Partner access is free. Start browsing the catalog today.</p>
+        <p>Partner access is free. FDA-registered, cGMP-certified production, shipped blind under your name.</p>
       </div>
       <BtnPrimary href="#contact">Apply for Partner Access</BtnPrimary>
     </div>
@@ -623,7 +671,9 @@ function Footer() {
         <div className="footer-brand">
           <div className="footer-logo">UPTIME<span>PARTS</span>HUB</div>
           <p className="footer-tagline">
-            Performance nutrition supply for brands that move.
+            Performance nutrition supply for brands that move. FDA-registered,
+            NSF International–audited, cGMP-certified production — shipped under
+            your name, never ours.
           </p>
         </div>
         <div className="footer-cols">
@@ -731,14 +781,14 @@ const INK_PROCESS_STEPS = [
   { num: '01', title: 'Specify Your Substrate', text: 'Tell us your packaging material — PE film, PP pouch, kraft paper, shrink sleeve, etc.' },
   { num: '02', title: 'Select Ink Type',         text: 'Browse by application, regulation, or performance spec. Filter by FDA / EU / PPWR compliance.' },
   { num: '03', title: 'Request CoA Package',     text: 'Every order includes Certificate of Analysis, migration test reports, and regulatory declaration.' },
-  { num: '04', title: 'Drop-Ship to Printer',    text: 'We ship direct to your end customer, contract manufacturer, or your own location - wherever fits your supply chain. No stock, no hassle.' },
+  { num: '04', title: 'Drop-Ship to Printer',    text: 'We ship direct to your end customer, contract manufacturer, or your own location - wherever fits your supply chain. Blind-shipped under your name if you want it that way. No stock, no hassle.' },
 ];
 
 const INK_WHY = [
   { icon: '🎓', title: 'F&B Industry Roots',    text: 'Our team comes from food, beverage, and nutrition — we understand what\'s actually at stake with packaging compliance.' },
   { icon: '📄', title: 'Docs on Every Order',   text: 'CoA, SDS, migration test data, and regulatory declaration shipped with every ink order. No chasing paperwork.' },
   { icon: '🌍', title: 'NA & EU Coverage',      text: 'Dual-compliant sourcing across FDA and EU frameworks. One supplier for both markets.' },
-  { icon: '📦', title: 'Zero Stock Required',   text: 'Same drop-ship model as our nutrition supply. No minimum inventory, no warehouse cost.' },
+  { icon: '📦', title: 'Zero Stock, Zero Trace', text: 'Same drop-ship model as our nutrition supply — no minimum inventory, no warehouse cost, and blind shipping so the source stays yours alone.' },
 ];
 
 const INK_FILTERS = ['All', 'Food-Contact', 'Sustainable', 'Smart', 'EU Mandate'];
@@ -825,8 +875,10 @@ function PackagingSolutions() {
             {[
               ['FDA 21 CFR', '#c8f542'],
               ['EU 10/2011', '#c8f542'],
+              ['cGMP Certified', '#c8f542'],
               ['PPWR 2025 Ready', '#ff9f42'],
               ['CoA on Every Order', '#42d4f5'],
+              ['Blind Shipping', '#42d4f5'],
             ].map(([label, color]) => (
               <span key={label} className="pkg-badge"
                 style={{ color, background: `${color}12`, border: `1px solid ${color}35` }}>
