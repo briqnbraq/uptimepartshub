@@ -51,10 +51,10 @@ const CATEGORIES = [
   },
   {
     icon: '💊',
-    name: 'Supplement Formats',
+    name: 'Gummies, Capsules and Softgels',
     count: '75+ SKUs',
-    desc: 'Capsules, softgels, gummies, and powder sachets with white-label packaging from verified manufacturers.',
-    tags: ['Capsules', 'Gummies', 'Sachets'],
+    desc: 'Nootropics, creatine, collagen, and immune blends in gummy, capsule, and softgel formats. Private label from 1000 units, produced in FDA-registered, cGMP-certified facilities.',
+    tags: ['Gummies', 'Capsules', 'Nootropics', 'Creatine'],
   },
   {
     icon: '🌾',
