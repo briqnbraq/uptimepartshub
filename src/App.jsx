@@ -63,6 +63,13 @@ const CATEGORIES = [
     desc: 'Functional snacks, protein bars, and specialty food components for retail and foodservice channels.',
     tags: ['Snacks', 'Bars', 'Foodservice'],
   },
+  {
+    icon: '🏋',
+    name: 'Sports Nutrition',
+    count: '40+ SKUs',
+    desc: 'Pre-workout, BCAA, creatine, protein, and recovery blends — stock formulas ready to private label at low MOQ.',
+    tags: ['Pre-Workout', 'BCAA', 'Creatine', 'Protein'],
+  },
 ];
 
 const PROCESS_STEPS = [
