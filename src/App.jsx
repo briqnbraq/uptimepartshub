@@ -123,6 +123,11 @@ const VALUE_PROPS = [
     title: 'Dedicated Support',
     text: 'Formulation advice, supplier introductions, and regulatory guidance from your industry-insider partner team.',
   },
+  {
+    icon: '🎯',
+    title: 'Low MOQ to Launch',
+    text: 'Start from as little as 1000 units on stock formulas. Test the market, build traction, then scale to custom formulation. No large upfront commitment required.',
+  },
 ];
 
 const SUPPLIERS = [
