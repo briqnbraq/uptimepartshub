@@ -16,7 +16,7 @@ const TICKER_ITEMS = [
   'Beverages & Supplements', 'Food Ingredients', 'Zero Inventory Risk',
   'Industry Expert Curation', 'North America & Europe',
   'Food-Safe Packaging Inks', 'FDA & EU Compliant',
-  'FDA-Registered Facilities', 'NSF International Audited',
+  'FDA-Registered Facilities',
   'cGMP Certified Production', 'Blind Ship — Your Brand Only',
 ];
 
@@ -118,7 +118,7 @@ const VALUE_PROPS = [
   {
     icon: '✅',
     title: 'FDA Registered. cGMP Certified.',
-    text: 'Production runs in FDA-registered, NSF International–audited, cGMP-certified facilities, with current SDS, CoA, and NA/EU regulatory docs on every product.',
+    text: 'Production runs in FDA-registered, cGMP-certified facilities, with current SDS, CoA, and NA/EU regulatory docs on every product.',
   },
   {
     icon: '🔗',
@@ -421,7 +421,7 @@ function WhiteLabel() {
               'Custom label design support available',
               'Blind shipping — your brand on the box and the packing slip',
               'No manufacturer marks, inserts, or return addresses',
-              'Produced in FDA-registered, NSF International–audited, cGMP-certified facilities',
+              'Produced in FDA-registered, cGMP-certified facilities',
               'Certificate of Analysis (CoA) on every lot',
               'FDA / Health Canada / EU regulatory guidance',
               'Shopify & WooCommerce fulfillment integration',
@@ -526,9 +526,9 @@ function About() {
           </p>
           <p>
             Everything we ship is produced in FDA-registered facilities that are
-            audited by NSF International and run to cGMP (Current Good Manufacturing
-            Practice) standards — third-party verified, batch-documented, and held to
-            the same bar as the national brands on the shelf next to you.
+            run to cGMP (Current Good Manufacturing Practice) standards —
+            batch-documented, and held to the same bar as the national brands on
+            the shelf next to you.
           </p>
           <p>
             And we stay out of the frame. UptimePartsHub is a silent partner: our
@@ -742,8 +742,7 @@ function Footer() {
           <div className="footer-logo">UPTIME<span>PARTS</span>HUB</div>
           <p className="footer-tagline">
             Performance nutrition supply for brands that move. FDA-registered,
-            NSF International–audited, cGMP-certified production — shipped under
-            your name, never ours.
+            cGMP-certified production — shipped under your name, never ours.
           </p>
         </div>
         <div className="footer-cols">
