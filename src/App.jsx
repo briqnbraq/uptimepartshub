@@ -767,6 +767,9 @@ function Footer() {
         <span>© 2026 UptimePartsHub. All rights reserved.</span>
         <span>uptimepartshub.com</span>
       </div>
+      <p className="footer-privacy">
+        This site uses privacy-first, cookieless analytics. No personal data is collected or stored.
+      </p>
     </footer>
   );
 }
