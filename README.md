@@ -143,4 +143,8 @@ Same pattern:
 - [ ] Integrate Shopify Storefront API for live catalog browsing
 - [ ] Add `/catalog` route with React Router if multi-page needed
 - [ ] Set up analytics with Cloudflare Web Analytics (free, no cookies)
+      — enable it from the Cloudflare dashboard (Web Analytics → add hostname)
+      so the beacon is injected automatically. Do not add a
+      `static.cloudflareinsights.com/beacon.min.js` tag to `index.html`; that
+      would double-count pageviews and hardcode the site token in the repo.
 # UptimePartsHub
