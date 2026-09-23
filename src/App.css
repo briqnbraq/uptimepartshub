@@ -672,6 +672,26 @@ h2 {
 .form-field input::placeholder,
 .form-field textarea::placeholder { color: var(--faint); }
 
+.form-field input.has-error,
+.form-field select.has-error,
+.form-field textarea.has-error { border-color: var(--accent); }
+
+.form-note {
+  font-family: var(--font-mono);
+  font-size: 0.6rem; letter-spacing: 0.08em;
+  color: var(--mid);
+}
+.form-error {
+  font-family: var(--font-mono);
+  font-size: 0.6rem; letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.contact-error {
+  font-family: var(--font-mono);
+  font-size: 0.68rem; letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
 .btn-submit {
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--lime); color: var(--ink);

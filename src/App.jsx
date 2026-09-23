@@ -142,6 +142,8 @@ const SUPPLIERS = [
   'Glanbia Nutritionals', 'Iovate Health', 'Prinova Group',
 ];
 
+const COUNTRY_OPTIONS = ['US', 'EU', 'Canada', 'UK', 'Australia', 'Asia', 'Other'];
+
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
 
 function useInView(threshold = 0.15) {
@@ -562,15 +564,42 @@ function About() {
 
 function Contact() {
   const [ref, visible] = useInView();
-  const [form, setForm] = useState({ name: '', company: '', email: '', interest: 'dropship', message: '' });
+  const [form, setForm] = useState({
+    name: '', company: '', email: '', phone: '', website: '',
+    country: '', interest: 'dropship', message: '',
+  });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const [errors, setErrors] = useState({});
 
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setForm(f => ({ ...f, [name]: value }));
+    setErrors(errs => {
+      if (!errs[name]) return errs;
+      const next = { ...errs };
+      delete next[name];
+      return next;
+    });
+  };
+
+  const validate = () => {
+    const next = {};
+    if (!form.name.trim())    next.name    = 'Please enter your full name.';
+    if (!form.company.trim()) next.company = 'Please enter your company name.';
+    if (!form.email.trim())   next.email   = 'Please enter your email address.';
+    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) next.email = 'Please enter a valid email address.';
+    if (!form.country)        next.country = 'Please select your country / market.';
+    if (!form.message.trim()) next.message = 'Please tell us about your brand and what you need.';
+    return next;
+  };
 
   const handleSubmit = async e => {
     e.preventDefault();
     setError(false);
+    const nextErrors = validate();
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) return;
     try {
       const res = await fetch('https://formspree.io/f/mvznaoew', {
         method: 'POST',
@@ -616,20 +645,45 @@ function Contact() {
               <p>We'll be in touch within 1 business day.</p>
             </div>
           ) : (
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form className="contact-form" onSubmit={handleSubmit} noValidate>
               <div className="form-row">
                 <div className="form-field">
                   <label>Full Name</label>
-                  <input name="name" value={form.name} onChange={handleChange} placeholder="Your name" required />
+                  <input name="name" value={form.name} onChange={handleChange} placeholder="Your name"
+                    aria-invalid={!!errors.name} className={errors.name ? 'has-error' : ''} />
+                  {errors.name && <p className="form-error">{errors.name}</p>}
                 </div>
                 <div className="form-field">
                   <label>Company</label>
-                  <input name="company" value={form.company} onChange={handleChange} placeholder="Your brand / company" />
+                  <input name="company" value={form.company} onChange={handleChange} placeholder="Your brand / company"
+                    aria-invalid={!!errors.company} className={errors.company ? 'has-error' : ''} />
+                  {errors.company && <p className="form-error">{errors.company}</p>}
                 </div>
               </div>
               <div className="form-field">
                 <label>Email Address</label>
-                <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@yourcompany.com" required />
+                <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@yourcompany.com"
+                  aria-invalid={!!errors.email} className={errors.email ? 'has-error' : ''} />
+                {errors.email && <p className="form-error">{errors.email}</p>}
+              </div>
+              <div className="form-row">
+                <div className="form-field">
+                  <label>Phone (optional)</label>
+                  <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+1 555 000 0000" />
+                </div>
+                <div className="form-field">
+                  <label>Website (optional)</label>
+                  <input type="url" name="website" value={form.website} onChange={handleChange} placeholder="https://yourbrand.com" />
+                </div>
+              </div>
+              <div className="form-field">
+                <label>Country / Market</label>
+                <select name="country" value={form.country} onChange={handleChange}
+                  aria-invalid={!!errors.country} className={errors.country ? 'has-error' : ''}>
+                  <option value="">Select your country / market…</option>
+                  {COUNTRY_OPTIONS.map(c => <option key={c} value={c}>{c}</option>)}
+                </select>
+                {errors.country && <p className="form-error">{errors.country}</p>}
               </div>
               <div className="form-field">
                 <label>I'm interested in</label>
@@ -642,8 +696,12 @@ function Contact() {
                 </select>
               </div>
               <div className="form-field">
-                <label>Message (optional)</label>
-                <textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell us about your brand or what you're looking for..." rows={4} />
+                <label>Message</label>
+                <textarea name="message" value={form.message} onChange={handleChange}
+                  placeholder="Tell us about your brand, what products you are looking for, and your target market (minimum 50 words)"
+                  rows={4} aria-invalid={!!errors.message} className={errors.message ? 'has-error' : ''} />
+                <p className="form-note">Required — please provide as much detail as possible.</p>
+                {errors.message && <p className="form-error">{errors.message}</p>}
               </div>
               <button type="submit" className="btn-submit">
                 Send Enquiry
